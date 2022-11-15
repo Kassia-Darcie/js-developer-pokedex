@@ -17,8 +17,9 @@ body {
 @media screen and (min-width: 992px) {
     .content {
         max-width: 992px;
-        height: auto;
         margin: 1rem auto;
+        height: auto;
         border-radius: 1rem;
     }
 }
+
