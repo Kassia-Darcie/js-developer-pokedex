@@ -30,3 +30,11 @@ pokeApi.getPokemons = (offset = 0, limit = 10) => {
         .catch((err) => console.error(err))
 }
 
+pokeApi.getPokemonDetailedInfo = (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    return fetch(url)
+        .then((response) => response.json())
+        .then(pokeApi.convertPokeApiDetailToPokemon)
+        .catch((err) => console.error(err))
+}
+

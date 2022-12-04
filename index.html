@@ -12,9 +12,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/pokedex.css">
+    <link rel="stylesheet" href="assets/css/pokemon-detail.css">
 </head>
 <body>
-    <section class="content">
+    <section id="pokedex" class="content">
         <h1>pokedex</h1>
         <ol id="pokemonsList" class="pokemons">
             
@@ -24,6 +25,73 @@
             <button id="loadMore">Load more</button>
         </div>
     </section>
+
+    <section id="detail-page" class="content pokemon-detail">
+        <div class="buttons"><button id="back">&#8592;</button></div>
+        <div id="detail-content" class="header">
+            
+            <div class="pokemon-detail__title">
+                <h1 class="pokemon__name">Bulbasaur</h1>
+                <ol class="pokemon__types">
+                    <li class="pokemon__type grass">Grass</li>
+                    <li class="pokemon__type poison">poison</li>
+                </ol>
+            </div>
+            <div class="pokemon__id">#001</div>
+        </div>
+
+        <div class="pokemon-detail__img">
+            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="bulba">
+        </div>
+
+        <div class="pokemon-detail__description">
+            <ul class="description__menu">
+                <li class="description__menu-item selected">About</li>
+                <li class="description__menu-item">Base Stats</li>
+                <li class="description__menu-item">Evolution</li>
+                <li class="description__menu-item">Moves</li>
+            </ul>
+
+            <div class="description__info">
+                <table>
+                    <tr>
+                        <th>Species</th>
+                        <td>Seed</td>
+                    </tr>
+                    <tr>
+                        <th>Height</th>
+                        <td>2'3,6(0.70cm)</td>
+                    </tr>
+                    <tr>
+                        <th>Weight</th>
+                        <td>15,2 lbs (6,9 kg)</td>
+                    </tr>
+                    <tr>
+                        <th>Abilities</th>
+                        <td>overgrow, chlorophyll</td>
+                    </tr>
+                </table>
+
+                <h2>Breeding</h2>
+                <table>
+                    <tr>
+                        <th>Gender</th>
+                        <td>87.5%</td>
+                        <td>12.5%</td>
+                    </tr>
+                    <tr>
+                        <th>Egg Groups</th>
+                        <td>Monster</td>
+                    </tr>
+                    <tr>
+                        <th>Egg Cycle</th>
+                        <td>Grass</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
 
     <script src="assets/js/poke-model.js"></script>
     <script src="assets/js/poke-api.js"></script>
