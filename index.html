@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/global.css">
     <link rel="stylesheet" href="assets/css/pokedex.css">
     <link rel="stylesheet" href="assets/css/pokemon-detail.css">
@@ -26,81 +26,107 @@
         </div>
     </section>
 
-    <section id="detail-page" class="content show ">
-        
+    <section id="detail-page" class="content">
+        <img class="pokeball-watermark" src="assets/images/Pokeball.svg" alt="">
+        <div class="detail-content"></div>
     </section>
 
     <div class="models">
-        <div class="pokemon-detail">
-            <div class="buttons"><button id="back">&#8592;</button></div>
-            <div id="detail-content" class="header">
-            
-                <div class="pokemon-detail__title">
-                    <h1 class="pokemon__name"></h1>
-                    <ol class="pokemon__types">
-                      
-                    </ol>
-                </div>
-                <div class="pokemon__id">#001</div>
+        <div class="pokemon-detail ">
+            <div class="detail-header">
+                <img src="assets/images/arrow-left.svg" alt="back to pokedex">
+                <h1>Bulbasaur</h1>
+                <span>#001</span>
             </div>
-            
-            <div class="pokemon-detail__description">
-                <ul class="description__menu">
-                    <li class="description__menu-item selected">About</li>
-                    <li class="description__menu-item">Base Stats</li>
-                    <li class="description__menu-item">Evolution</li>
-                    <li class="description__menu-item">Moves</li>
-                </ul>
-                <div class="description__info">
-                    <div class="description__info__sliders">
-                        <div class="description__info__item about">
-                            <table>
-                                <tr class="species">
-                                    <th>Species</th>
-                                    <td>Seed</td>
-                                </tr>
-                                <tr class="height">
-                                    <th>Height</th>
-                                    <td>2'3,6(0.70cm)</td>
-                                </tr>
-                                <tr class="weight">
-                                    <th>Weight</th>
-                                    <td>15,2 lbs (6,9 kg)</td>
-                                </tr>
-                                <tr class="abilities">
-                                    <th>Abilities</th>
-                                    <td>overgrow, chlorophyll</td>
-                                </tr>
-                            </table>
-                            <h2>Breeding</h2>
-                            <table>
-                                <tr>
-                                    <th>Gender</th>
-                                    <td>87.5%</td>
-                                    <td>12.5%</td>
-                                </tr>
-                                <tr>
-                                    <th>Egg Groups</th>
-                                    <td>Monster</td>
-                                </tr>
-                                <tr>
-                                    <th>Egg Cycle</th>
-                                    <td>Grass</td>
-                                </tr>
-                            </table>
+            <div class="detail-pokemon-img">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/2.png" alt="bulbasar">
+            </div>
+            <div class="detail-card">
+                <ol class="pokemon__types">
+                    <li class="pokemon__type grass">Grass</li>
+                    <li class="pokemon__type poison">Grass</li>
+                </ol>
+
+                <div class="card-item about">
+                    <h2>About</h2>
+                    <div class="caracteristics-wrapper">
+                        <div class="caracteristic weight">
+                            <div class="caracteristic-info">
+                                <img src="assets/images/Weight.svg" alt="Weight icon">
+                                <span>6.9 Kg</span>
+                            </div>
+                            <div class="caracteristic-name">Weight</div>
                         </div>
-                        <div class="description__info__item base-stats">base</div>
-                        <div class="description__info__item evolution">evolution</div>
-                        <div class="description__info__item moves">moves</div>
+                        <div class="caracteristic height">
+                            <div class="caracteristic-info">
+                                <img src="assets/images/Height.svg" alt="height icon">
+                                <span>0.7 m</span>
+                            </div>
+                            <div class="caracteristic-name">Height</div>
+
+                        </div>
+                        <div class="caracteristic">
+                            <div class="abilities">Chlorophyll<br>
+                                Overgrow
+                            </div>
+                            <div class="caracteristic-name">Moves</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="pokemon-detail__img">
-            <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" alt="bulba">
+                <div class="card-item base-stats">
+                    <h2>Base stats</h2>
+                    <ul class="stats-list">
+                        <li class="stat">
+                            <div class="stat-info">
+                                <span class="stat-name">HP</span>
+                                <span class="stat-value">056</span>
+                            </div>
+                            <div class="stat-bar"></div>
+                        </li>
+                        <li class="stat">
+                            <div class="stat-info">
+                                <span class="stat-name">atk</span>
+                                <span class="stat-value">056</span>
+                            </div>
+                            <div class="stat-bar"></div>
+                        </li>
+                        <li class="stat">
+                            <div class="stat-info">
+                                <span class="stat-name">def</span>
+                                <span class="stat-value">056</span>
+                            </div>
+                            <div class="stat-bar"></div>
+                        </li>
+                        <li class="stat">
+                            <div class="stat-info">
+                                <span class="stat-name">satk</span>
+                                <span class="stat-value">056</span>
+                            </div>
+                            <div class="stat-bar"></div>
+                        </li>
+                        <li class="stat">
+                            <div class="stat-info">
+                                <span class="stat-name">sdef</span>
+                                <span class="stat-value">056</span>
+                            </div>
+                            <div class="stat-bar"></div>
+                        </li>
+                        <li class="stat">
+                            <div class="stat-info">
+                                <span class="stat-name">spd</span>
+                                <span class="stat-value">056</span>
+                            </div>
+                            <div class="stat-bar"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+                   
         </div>
     </div>
+   
 
 
     <script src="assets/js/poke-model.js"></script>

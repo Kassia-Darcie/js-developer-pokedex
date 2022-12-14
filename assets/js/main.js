@@ -45,6 +45,8 @@ function loadPokemonItens(offset, limit) {
 }
 
 function showPokemonDetailPage(pokemonId) {
+  sectionDetailPage.querySelector('.detail-content').innerHTML = '';
+
   sectionPokedex.classList.remove('show')
   sectionDetailPage.classList.add('show')
 
@@ -52,56 +54,57 @@ function showPokemonDetailPage(pokemonId) {
     const pokemonDetail = document
       .querySelector('.pokemon-detail')
       .cloneNode(true)
-    const pokemonDetailImg = document
-      .querySelector('.pokemon-detail__img')
-      .cloneNode(true)
-
+    
     sectionDetailPage.classList.add(pokemon.main_type)
 
-    pokemonDetail.querySelector('.pokemon__name').innerHTML = pokemon.name
-    pokemonDetail.querySelector('.pokemon__types').innerHTML = pokemon.types
-      .map(type => `<li class="pokemon__type ${type}">${type}</li>`)
-      .join('')
-    pokemonDetail.querySelector('.pokemon__id').innerHTML = pokemon.id
-    pokemonDetail.querySelector('.abilities td').innerHTML = pokemon.abilities.join(', ')
-    pokemonDetail.querySelector('.height td').innerHTML = pokemon.height >= 10 ? `${((pokemon.height * 10) / 100).toFixed(2)}m` : `${pokemon.height * 10}cm`
-    pokemonDetail.querySelector('.weight td').innerHTML = `${pokemon.weight / 10}Kg`
-    pokemonDetailImg.querySelector('.pokemon-detail__img img').src =
-      pokemon.image
+    pokemonDetail.querySelector('.detail-header h1').innerHTML = pokemon.name;
+    pokemonDetail.querySelector('.detail-header span').innerHTML = `# ${pokemon.id}`;
+    pokemonDetail.querySelector('.detail-pokemon-img img').src = pokemon.image;
+    pokemonDetail.querySelector('.detail-card .pokemon__types').innerHTML =
+			pokemon.types
+				.map(type => `<li class="pokemon__type ${type}">${type}</li>`).join('');
+    pokemonDetail.querySelector('.weight .caracteristic-info span').innerHTML = pokemon.weight;
+    pokemonDetail.querySelector('.height .caracteristic-info span').innerHTML =
+			pokemon.height;
+    pokemonDetail.querySelector('.abilities').innerHTML = `${pokemon.abilities.join('<br>')}`
+
+    pokemonDetail.querySelectorAll('.stat-name, .card-item h2').forEach(element => {
+      element.style.color = pokemon.main_typeColor;
+    });
+    pokemonDetail.querySelectorAll('.stat-value').forEach((statValue, index) => {
+      const value = pokemon.stats[index].base_stat;
+      statValue.innerHTML = value
+    });
+    pokemonDetail
+			.querySelectorAll('.stat-bar')
+			.forEach((bar, index) => {
+				const value = pokemon.stats[index].base_stat;
+				const width = `${(value * 100 / 255).toFixed(1)}%`
+
+        // bar.style.backgroundColor = pokemon.main_typeColor
+        bar.style.setProperty('--afterWidth', width)
+        bar.style.setProperty('--afterBackground', pokemon.main_typeColor);
+        
+			});
 
     
 
-    sectionDetailPage.append(pokemonDetail, pokemonDetailImg)
+    sectionDetailPage.querySelector('.detail-content').appendChild(pokemonDetail)
 
-    const menuItem = pokemonDetail.querySelectorAll('.description__menu-item')
-    const backBtn = document.getElementById('back')
+    pokemonDetail.querySelector('.detail-header img').addEventListener('click', backToPokedex);
 
+    function backToPokedex() {
+			sectionDetailPage.classList.remove('show');
+			sectionPokedex.classList.add('show');
+			sectionDetailPage.classList.remove(pokemon.main_type);
+     
+		}
 
-    menuItem.forEach((item, index) => item.addEventListener("click", (e) => {
-        pokemonDetail.querySelector('.description__menu-item.selected').classList.remove('selected')
-        item.classList.add('selected')
-
-        const descriptionArea = pokemonDetail.querySelector('.description__info__item')
-        const itemWidth = descriptionArea.clientWidth
-        let marginLeft = -(index * itemWidth) + "px"
-
-        descriptionArea.style.marginLeft = marginLeft
-        console.log(itemWidth);
-    }))
-
-    backBtn.addEventListener('click', () => {
-      sectionDetailPage.classList.remove('show')
-      sectionPokedex.classList.add('show')
-      sectionDetailPage.classList.remove(pokemon.main_type)
-      sectionDetailPage.innerHTML = ''
-    })
+    
   })
 }
 
-function backToPokedex() {
-  sectionDetailPage.style.display = 'none'
-  sectionPokedex.style.display = 'block'
-}
+
 
 loadPokemonItens(offset, limit)
 

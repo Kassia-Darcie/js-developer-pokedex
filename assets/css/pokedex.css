@@ -73,6 +73,7 @@
     border-radius: 1rem;
     display: flex;
     flex-direction: column;
+    box-shadow: 2px 2px 4px 1px rgba(0,0,0,0.38);
     
 }
 

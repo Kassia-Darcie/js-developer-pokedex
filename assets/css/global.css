@@ -1,9 +1,11 @@
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
 body {
+    display: flex;
+    justify-content: center;
     background-color: #f6f8fc;
 }
 
@@ -30,8 +32,12 @@ section.show {
     .content {
         max-width: 992px;
         margin: 1rem auto;
-        height: auto;
         border-radius: 1rem;
     }
+
+    #detail-page.content {
+        height: 96vh;
+    }
+
 }
 

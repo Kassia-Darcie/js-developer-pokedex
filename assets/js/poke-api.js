@@ -11,8 +11,9 @@ pokeApi.convertPokeApiDetailToPokemon = (pokemonsDetail) => {
     pokemon.main_type = type
     pokemon.image = pokemonsDetail.sprites.other["official-artwork"].front_default
     pokemon.abilities = pokemonsDetail.abilities.map((abilitySlot) => abilitySlot.ability.name)
-    pokemon.height = pokemonsDetail.height
-    pokemon.weight = pokemonsDetail.weight
+    pokemon._height = pokemonsDetail.height
+    pokemon._weight = pokemonsDetail.weight
+    pokemon.stats = pokemonsDetail.stats
     return pokemon;
 }
 
